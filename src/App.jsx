@@ -16,7 +16,6 @@ export default function Portfolio() {
   }, []);
 
   useEffect(() => {
-    // Animate stats on load
     const interval = setInterval(() => {
       setStats(prev => ({
         leetcode: prev.leetcode < 300 ? prev.leetcode + 15 : 300,
@@ -92,16 +91,15 @@ export default function Portfolio() {
     "Core Concepts": ["ML Pipelines", "Feature Engineering", "Bayesian Optimization", "Data Analysis"]
   };
 
-  const bgColor = isDark ? 'bg-[#0a1f3f]' : 'bg-white';
+  const bgColor = isDark ? 'bg-[#0a0a0a]' : 'bg-white';
   const textColor = isDark ? 'text-white' : 'text-gray-900';
-  const cardBg = isDark ? 'bg-[#122a4f]' : 'bg-gray-50';
-  const accentColor = '#00d4ff';
-  const accentHover = '#00b8d4';
+  const cardBg = isDark ? 'bg-[#1a1a1a]' : 'bg-gray-50';
+  const accentColor = '#fbbf24';
+  const accentHover = '#f59e0b';
   const secondaryText = isDark ? 'text-gray-300' : 'text-gray-600';
 
   return (
     <div className={`${bgColor} ${textColor} transition-colors duration-300 min-h-screen font-inter`}>
-      {/* Import fonts */}
       <style>
         {`
           @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap');
@@ -138,8 +136,8 @@ export default function Portfolio() {
           }
           
           @keyframes glow {
-            0%, 100% { box-shadow: 0 0 20px rgba(0, 212, 255, 0.3); }
-            50% { box-shadow: 0 0 30px rgba(0, 212, 255, 0.6); }
+            0%, 100% { box-shadow: 0 0 20px rgba(251, 191, 36, 0.3); }
+            50% { box-shadow: 0 0 30px rgba(251, 191, 36, 0.6); }
           }
           
           .animate-fade-in-up {
@@ -165,14 +163,13 @@ export default function Portfolio() {
       </style>
 
       {/* Navigation */}
-      <nav className={`fixed w-full top-0 z-50 transition-all duration-300 backdrop-blur-md ${scrolled ? (isDark ? 'bg-[#0a1f3f]/95 border-b border-cyan-900/30' : 'bg-white/95 border-b border-gray-200') : 'bg-transparent'}`}>
+      <nav className={`fixed w-full top-0 z-50 transition-all duration-300 backdrop-blur-md ${scrolled ? (isDark ? 'bg-[#0a0a0a]/95 border-b border-yellow-900/30' : 'bg-white/95 border-b border-gray-200') : 'bg-transparent'}`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
             <a href="#home" className="text-3xl font-bold font-outfit" style={{ color: accentColor }}>
               KC
             </a>
             
-            {/* Desktop Menu */}
             <div className="hidden md:flex items-center gap-8">
               {['Home', 'About', 'Projects', 'Skills', 'Contact'].map((item) => (
                 <a
@@ -185,13 +182,12 @@ export default function Portfolio() {
               ))}
               <button
                 onClick={() => setIsDark(!isDark)}
-                className={`p-2.5 rounded-lg transition duration-300 ${isDark ? 'bg-[#122a4f]' : 'bg-gray-200'}`}
+                className={`p-2.5 rounded-lg transition duration-300 ${isDark ? 'bg-[#1a1a1a]' : 'bg-gray-200'}`}
               >
                 {isDark ? <Sun size={20} style={{ color: accentColor }} /> : <Moon size={20} />}
               </button>
             </div>
 
-            {/* Mobile Menu Button */}
             <div className="md:hidden flex items-center gap-4">
               <button onClick={() => setIsDark(!isDark)} className="p-2">
                 {isDark ? <Sun size={20} style={{ color: accentColor }} /> : <Moon size={20} />}
@@ -202,7 +198,6 @@ export default function Portfolio() {
             </div>
           </div>
 
-          {/* Mobile Menu */}
           {isMenuOpen && (
             <div className={`md:hidden pb-4 space-y-2 ${cardBg} rounded-xl p-4 mt-2`}>
               {['Home', 'About', 'Projects', 'Skills', 'Contact'].map((item) => (
@@ -217,7 +212,6 @@ export default function Portfolio() {
 
       {/* Hero Section */}
       <section id="home" className="min-h-screen flex items-center justify-center pt-20 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
-        {/* Gradient Background */}
         <div className="absolute inset-0 opacity-30 pointer-events-none">
           <div className="absolute top-0 left-0 w-96 h-96 rounded-full blur-3xl" style={{ backgroundColor: accentColor + '20' }}></div>
           <div className="absolute bottom-0 right-0 w-96 h-96 rounded-full blur-3xl" style={{ backgroundColor: accentColor + '10' }}></div>
@@ -231,7 +225,7 @@ export default function Portfolio() {
           </div>
 
           <div className="animate-fade-in-up delay-1">
-            <p className="text-2xl sm:text-3xl font-medium mb-4 bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">
+            <p className="text-2xl sm:text-3xl font-medium mb-4" style={{ color: accentColor }}>
               Data Science & AI/ML Developer
             </p>
           </div>
@@ -243,14 +237,13 @@ export default function Portfolio() {
             </p>
           </div>
 
-          {/* CTA Buttons */}
           <div className="animate-fade-in-up delay-3 flex gap-4 justify-center mb-16 flex-wrap">
             <a
               href="https://github.com/Kashish-x1"
               target="_blank"
               rel="noopener noreferrer"
               className="px-8 py-3 rounded-lg font-medium flex items-center gap-2 transition duration-300 hover:scale-105 glow-effect"
-              style={{ backgroundColor: accentColor, color: '#0a1f3f' }}
+              style={{ backgroundColor: accentColor, color: '#0a0a0a' }}
             >
               <Github size={20} /> View GitHub
             </a>
@@ -263,7 +256,6 @@ export default function Portfolio() {
             </a>
           </div>
 
-          {/* Scroll Indicator */}
           <div className="animate-fade-in-up delay-4">
             <div className="text-center text-sm opacity-50">
               ↓ Scroll to explore
@@ -273,7 +265,7 @@ export default function Portfolio() {
       </section>
 
       {/* Stats Section */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 border-t border-cyan-900/20">
+      <section className="py-20 px-4 sm:px-6 lg:px-8 border-t" style={{ borderColor: accentColor + '20' }}>
         <div className="max-w-7xl mx-auto grid md:grid-cols-3 gap-8">
           <div className={`${cardBg} rounded-2xl p-8 text-center animate-fade-in-up delay-1`}>
             <Code size={40} style={{ color: accentColor }} className="mx-auto mb-4" />
@@ -348,12 +340,12 @@ export default function Portfolio() {
                 className={`${cardBg} rounded-2xl overflow-hidden hover:shadow-2xl transition duration-300 transform hover:scale-105 animate-fade-in-up`}
                 style={{ animationDelay: `${index * 100}ms` }}
               >
-                {/* Project Header */}
-                <div className="h-32 bg-gradient-to-r from-cyan-500 to-blue-600 flex items-center justify-center text-6xl">
-                  {project.icon}
+                <div className="h-32 bg-gradient-to-r" style={{ backgroundImage: `linear-gradient(135deg, ${accentColor}80, ${accentColor}40)` }}>
+                  <div className="w-full h-full flex items-center justify-center text-6xl">
+                    {project.icon}
+                  </div>
                 </div>
 
-                {/* Project Content */}
                 <div className="p-8">
                   <h3 className="text-2xl font-bold mb-3 font-outfit" style={{ color: accentColor }}>
                     {project.title}
@@ -363,7 +355,6 @@ export default function Portfolio() {
                     {project.description}
                   </p>
 
-                  {/* Highlights */}
                   <div className="mb-6">
                     <p className="text-sm font-semibold mb-3 opacity-70">Key Achievements:</p>
                     <div className="flex flex-wrap gap-2">
@@ -379,7 +370,6 @@ export default function Portfolio() {
                     </div>
                   </div>
 
-                  {/* Tech Stack */}
                   <p className="text-sm font-semibold mb-3 opacity-70">Tech Stack:</p>
                   <div className="flex flex-wrap gap-2 mb-6">
                     {project.tech.map((tech, i) => (
@@ -392,7 +382,6 @@ export default function Portfolio() {
                     ))}
                   </div>
 
-                  {/* CTA */}
                   <a
                     href={project.link}
                     target="_blank"
@@ -409,8 +398,8 @@ export default function Portfolio() {
         </div>
       </section>
 
-      {/* Skills Section */}
-      <section id="skills" className="py-20 px-4 sm:px-6 lg:px-8 border-t border-cyan-900/20">
+      {/* Skills Section - FIXED */}
+      <section id="skills" className="py-20 px-4 sm:px-6 lg:px-8 border-t" style={{ borderColor: accentColor + '20' }}>
         <div className="max-w-7xl mx-auto">
           <h2 className="text-5xl font-bold mb-16 text-center font-outfit">
             <span style={{ color: accentColor }}>Skills</span> & Expertise
@@ -428,9 +417,14 @@ export default function Portfolio() {
                 </h3>
                 <div className="space-y-3">
                   {category[1].map((skill, i) => (
-                    <div key={i} className="flex items-center gap-3">
-                      <div className="w-2 h-2 rounded-full" style={{ backgroundColor: accentColor }}></div>
-                      <span className="text-sm font-medium">{skill}</span>
+                    <div key={i} className="flex items-center gap-3 pb-2">
+                      <div 
+                        className="w-2 h-2 rounded-full flex-shrink-0" 
+                        style={{ backgroundColor: accentColor }}
+                      ></div>
+                      <span className="text-sm font-medium" style={{ color: textColor }}>
+                        {skill}
+                      </span>
                     </div>
                   ))}
                 </div>
@@ -452,7 +446,6 @@ export default function Portfolio() {
             Let's connect and create something amazing together!
           </p>
 
-          {/* Social Links */}
           <div className="flex gap-8 justify-center mb-12 flex-wrap">
             <a
               href="https://github.com/Kashish-x1"
@@ -481,7 +474,6 @@ export default function Portfolio() {
             </a>
           </div>
 
-          {/* Direct Contact */}
           <div className={`${cardBg} rounded-2xl p-8 mb-12`}>
             <p className="text-lg font-medium mb-4">Email me directly:</p>
             <a href="mailto:kashishchug90@gmail.com" className="text-2xl font-bold hover:opacity-70 transition" style={{ color: accentColor }}>
@@ -489,7 +481,6 @@ export default function Portfolio() {
             </a>
           </div>
 
-          {/* Footer */}
           <div className={`text-sm ${secondaryText}`}>
             <p>© 2026 Kashish Chug. All rights reserved.</p>
             <p className="mt-2">Built with React, Tailwind CSS, and passion for code.</p>
